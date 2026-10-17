@@ -13,7 +13,9 @@ import net from 'node:net';
 import express from 'express';
 
 const PORT = Number(process.env.PORT ?? 3000);
-const HOST = '0.0.0.0';
+// docker-not-listening: only the loopback interface, so Traefik cannot reach
+// the app and HubDeploy's health check must fail with app_not_listening.
+const HOST = '127.0.0.1';
 const TIMEOUT_MS = 3000;
 
 // Each target must be blocked, except the last one.
