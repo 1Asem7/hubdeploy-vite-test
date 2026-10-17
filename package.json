@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/network-check.mjs && node scripts/quiet-wait.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
